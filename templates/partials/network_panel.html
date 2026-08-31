@@ -1,0 +1,14 @@
+<div class="ph"><span class="l"><span class="d"></span>NETWORK</span></div>
+<div class="pb" data-chart="network" data-rx-history="{{ rx_history }}" data-tx-history="{{ tx_history }}">
+    <div class="net-layout">
+        <div class="net-stat"><span class="net-l">↓ Current</span><span class="net-v rx">{{ rx_rate }}</span></div>
+        <div class="net-stat"><span class="net-l">↑ Current</span><span class="net-v tx">{{ tx_rate }}</span></div>
+        <div class="net-stat"><span class="net-l">↓ Total</span><span class="net-v rx">{{ rx_total }}</span></div>
+        <div class="net-stat"><span class="net-l">↑ Total</span><span class="net-v tx">{{ tx_total }}</span></div>
+        <div class="net-stat"><span class="net-l">↓ Peak</span><span class="net-v rx">{{ rx_peak }}</span></div>
+        <div class="net-stat"><span class="net-l">↑ Peak</span><span class="net-v tx">{{ tx_peak }}</span></div>
+        <div class="net-stat"><span class="net-l">Pkts In</span><span class="net-v">{{ packets_rx }}</span></div>
+        <div class="net-stat"><span class="net-l">Pkts Out</span><span class="net-v">{{ packets_tx }}</span></div>
+        <div class="net-chart"><canvas id="net-spark"></canvas></div>
+    </div>
+</div>

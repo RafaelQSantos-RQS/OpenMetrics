@@ -1,0 +1,24 @@
+<div class="ph"><span class="l"><span class="d"></span>MEMORY</span><span class="v">{{ usage }}%</span></div>
+<div class="pb" data-chart="memory" data-history="{{ history }}">
+    <div class="mem-layout">
+        <div class="mem-left" style="display:flex;flex-direction:column;min-height:0;overflow:hidden;">
+            <div class="mem-chart" style="flex:1;min-height:0;"><canvas id="mem-spark"></canvas></div>
+        </div>
+        <div class="mem-stats">
+            <div class="cpu-section-title">Physical</div>
+            <div class="mem-bar"><div class="mem-fill" style="width:{{ usage }}%"></div></div>
+            <div class="mem-row"><span class="stat-l">Used</span><span class="stat-v purple">{{ used }}</span></div>
+            <div class="mem-row"><span class="stat-l">Avail</span><span class="stat-v">{{ available }}</span></div>
+            <div class="mem-row"><span class="stat-l">Free</span><span class="stat-v">{{ free }}</span></div>
+            <div class="mem-row"><span class="stat-l">Cached</span><span class="stat-v">{{ cached }}</span></div>
+            <div class="mem-row"><span class="stat-l">Buffers</span><span class="stat-v">{{ buffers }}</span></div>
+            <div class="mem-row"><span class="stat-l">Shared</span><span class="stat-v">{{ shared }}</span></div>
+            <div class="mem-row"><span class="stat-l">Total</span><span class="stat-v">{{ total }}</span></div>
+            <div class="cpu-section-title">Swap</div>
+            <div class="mem-bar"><div class="mem-fill" style="width:{{ swap_pct }}%"></div></div>
+            <div class="mem-row"><span class="stat-l">Used</span><span class="stat-v">{{ swap_used }}</span></div>
+            <div class="mem-row"><span class="stat-l">Free</span><span class="stat-v">{{ swap_free }}</span></div>
+            <div class="mem-row"><span class="stat-l">Total</span><span class="stat-v">{{ swap_total }}</span></div>
+        </div>
+    </div>
+</div>

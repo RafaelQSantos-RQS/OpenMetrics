@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}OpenMetrics{% endblock %}
+{% block content %}
+<div class="app">
+    <div class="header" hx-get="/partials/header" hx-trigger="load, every 10s" hx-swap="innerHTML">
+        <span class="header-brand">📊 OpenMetrics</span>
+    </div>
+    <div class="main">
+        <!-- Row 1: CPU (38%) -->
+        <div class="row">
+            <div class="panel cpu" hx-get="/partials/cpu" hx-trigger="load, every 2s" hx-swap="innerHTML">
+                <div class="loading">Loading...</div>
+            </div>
+        </div>
+        <!-- Row 2: MEM + (DISK/NET split) -->
+        <div class="row">
+            <div class="panel mem" hx-get="/partials/memory" hx-trigger="load, every 5s" hx-swap="innerHTML">
+                <div class="loading">Loading...</div>
+            </div>
+            <div class="panel" style="display:flex;flex-direction:column;">
+                <div class="panel disk" style="flex:1;" hx-get="/partials/disk" hx-trigger="load, every 10s" hx-swap="innerHTML">
+                    <div class="loading">Loading...</div>
+                </div>
+                <div class="panel net" style="flex:1;" hx-get="/partials/network" hx-trigger="load, every 3s" hx-swap="innerHTML">
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+        </div>
+        <!-- Row 3: PROCESSES (35%) -->
+        <div class="row">
+            <div class="panel proc" hx-get="/partials/processes" hx-trigger="load, every 3s" hx-swap="innerHTML">
+                <div class="loading">Loading...</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

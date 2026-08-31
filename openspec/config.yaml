@@ -1,0 +1,32 @@
+schema: spec-driven
+
+context: |
+  Tech stack: Rust (edition 2024), Axum web framework, Askama template engine, HTMX, SQLite
+  Domain: Linux system monitoring dashboard (single-node, server metrics)
+  Architecture: Axum serves both web UI (HTMX+Askama) and REST API
+  Auth: Session/cookie-based login for dashboard access
+  Deployment: Direct binary + Caddy reverse proxy in production
+  Metrics collection: sysinfo crate for system metrics, polled every X seconds (configurable)
+  Storage: SQLite for temporal metric history
+  Charts: Chart.js via CDN for metric visualization
+  Conventions: Follow Rust idioms, axum best practices, semantic versioning
+
+rules:
+  proposal:
+    - Keep proposals focused on what and why, not how
+    - Include clear non-goals section
+    - Reference btop/htop as UX inspiration
+  specs:
+    - Each spec should be a delta describing what the system must do
+    - Include acceptance criteria for each capability
+    - Reference the metric types explicitly (CPU, RAM, disk, network, etc.)
+  design:
+    - Prefer Axum over Actix-web for Tokio integration
+    - Prefer Askama for compile-time template safety
+    - Use rusqlite or sqlx for SQLite access
+    - Chart.js for client-side charting
+    - HTMX for dynamic updates without heavy JS
+  tasks:
+    - Break into chunks of max 2 hours
+    - Order by dependency (data layer → API → UI)
+    - Include test tasks

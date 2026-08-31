@@ -1,0 +1,28 @@
+<div class="kpi-cell">
+    <span class="kpi-label">CPU</span>
+    <span class="kpi-value {{ cpu_class }}">{{ cpu }}%</span>
+</div>
+<div class="kpi-cell">
+    <span class="kpi-label">MEMORY</span>
+    <span class="kpi-value {{ mem_class }}">{{ mem }}%</span>
+</div>
+<div class="kpi-cell">
+    <span class="kpi-label">DISK</span>
+    <span class="kpi-value {{ disk_class }}">{{ disk }}%</span>
+</div>
+<div class="kpi-cell">
+    <span class="kpi-label">NET ↓</span>
+    <span class="kpi-value green">{{ rx }}</span>
+</div>
+<div class="kpi-cell">
+    <span class="kpi-label">NET ↑</span>
+    <span class="kpi-value purple">{{ tx }}</span>
+</div>
+<div class="kpi-cell">
+    <span class="kpi-label">UPTIME</span>
+    <span class="kpi-value">{{ uptime }}</span>
+</div>
+<div class="kpi-cell kpi-alerts">
+    <span class="kpi-label">LOAD</span>
+    <span class="kpi-value {{ load_class }}">{{ load }}</span>
+</div>

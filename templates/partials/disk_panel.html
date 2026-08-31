@@ -1,0 +1,21 @@
+<div class="ph"><span class="l"><span class="d"></span>DISK</span></div>
+<div class="pb" data-chart="disk" data-read-history="{{ read_history }}" data-write-history="{{ write_history }}">
+    <div class="disk-list">
+        {% for disk in disks %}
+        <div class="disk-item">
+            <div class="disk-row">
+                <span class="disk-mount">{{ disk.mount }}</span>
+                <span class="disk-usage">{{ disk.used }}/{{ disk.total }}</span>
+            </div>
+            <div class="disk-io">
+                <span>R:</span><span>{{ disk.read }}</span>
+                <span>W:</span><span>{{ disk.write }}</span>
+            </div>
+            <div class="disk-bar">
+                <div class="disk-fill {% if disk.pct > 90.0 %}warn{% endif %}" style="width:{{ disk.pct_display }}%"></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="disk-chart"><canvas id="disk-spark"></canvas></div>
+</div>

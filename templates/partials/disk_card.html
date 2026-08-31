@@ -1,0 +1,16 @@
+<div class="card-header">
+    <h2>💿 DISK</h2>
+</div>
+<div class="disk-compact-list">
+    {% for disk in disks %}
+    <div class="disk-compact-item">
+        <div class="disk-compact-row">
+            <span class="disk-mount">{{ disk.mount }}</span>
+            <span class="disk-usage">{{ disk.used }} / {{ disk.total }}</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill {{ disk.color }}" style="width: {{ disk.percent }}%"></div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,13 @@
+<span class="header-brand">📊 OpenMetrics</span>
+<span class="header-sep">│</span>
+<span class="header-stat">Host: <span>{{ hostname }}</span></span>
+<span class="header-sep">│</span>
+<span class="header-stat">Uptime: <span>{{ uptime }}</span></span>
+<span class="header-sep">│</span>
+<span class="header-stat">Load: <span>{{ load }}</span></span>
+<span class="header-sep">│</span>
+<span class="header-stat">Cores: <span>{{ cores }}</span></span>
+<div class="header-right">
+    <button class="theme-btn" onclick="document.documentElement.classList.toggle('dark');document.documentElement.classList.toggle('light')">◐</button>
+    <a href="/logout" class="btn-logout">logout</a>
+</div>

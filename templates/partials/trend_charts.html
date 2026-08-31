@@ -1,0 +1,80 @@
+<div class="trend-panel">
+    <div class="trend-header">
+        <span class="trend-title">CPU</span>
+        <span class="trend-value orange">{{ cpu }}%</span>
+    </div>
+    <canvas id="cpu-sparkline" width="400" height="80"></canvas>
+    <script>
+        (function() {
+            const ctx = document.getElementById('cpu-sparkline');
+            if (!ctx) return;
+            const data = {{ cpu_history | safe }};
+            if (window._cpuChart) window._cpuChart.destroy();
+            window._cpuChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.map((_, i) => i),
+                    datasets: [{
+                        data: data,
+                        borderColor: '#ff671d',
+                        backgroundColor: 'rgba(255, 103, 29, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 0,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: false },
+                        y: { display: false, min: 0, max: 100 }
+                    },
+                    animation: { duration: 0 }
+                }
+            });
+        })();
+    </script>
+</div>
+<div class="trend-panel">
+    <div class="trend-header">
+        <span class="trend-title">MEMORY</span>
+        <span class="trend-value purple">{{ mem }}%</span>
+    </div>
+    <canvas id="memory-sparkline" width="400" height="80"></canvas>
+    <script>
+        (function() {
+            const ctx = document.getElementById('memory-sparkline');
+            if (!ctx) return;
+            const data = {{ mem_history | safe }};
+            if (window._memChart) window._memChart.destroy();
+            window._memChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.map((_, i) => i),
+                    datasets: [{
+                        data: data,
+                        borderColor: '#b877d9',
+                        backgroundColor: 'rgba(184, 119, 217, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 0,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: false },
+                        y: { display: false, min: 0, max: 100 }
+                    },
+                    animation: { duration: 0 }
+                }
+            });
+        })();
+    </script>
+</div>

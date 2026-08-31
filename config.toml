@@ -1,0 +1,26 @@
+# OpenMetrics Configuration
+
+[server]
+# Listen address and port
+host = "0.0.0.0"
+port = 3000
+
+[metrics]
+# How often to collect metrics (in seconds)
+polling_interval_secs = 5
+
+[database]
+# SQLite database path
+db_path = "data/metrics.db"
+
+# How long to keep metric data (in days)
+retention_days = 30
+
+[auth]
+# Login credentials (password should be a bcrypt hash in production)
+username = "admin"
+password_hash = "$2b$12$LJ3m4ys3Lz0wqV9rK5eQxuQHqFqVqVqVqVqVqVqVqVqVqVqVqVqVq"  # default: admin
+# Session secret key (CHANGE THIS IN PRODUCTION)
+session_secret = "change-me-to-a-random-secret-key"
+# Session expiry in hours
+session_expiry_hours = 24
